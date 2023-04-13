@@ -91,8 +91,11 @@ int main()
     for (int i = 0; i < cantidad; i++)
     {
         free(puntClientes[i].NombreCliente);
+        for (int j=0; j<puntClientes[i].CantidadProductosAPedir; j++){
+            free(puntClientes[i].Productos[j].TipoProducto);
+        }
+        free(puntClientes[i].Productos);
     }
-    
     free(puntClientes);
     return 0;
 }
